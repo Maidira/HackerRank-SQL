@@ -78,14 +78,14 @@ Q9. Query the two cities in STATION with the shortest and longest CITY names, as
 
 <img width="240" alt="q8" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/4f101b04-6489-4522-9f9a-a6739ba2b676">
 
-    select city,length(city) 
-    from station 
-    order By 
+    SELECT city,length(city) 
+    FROM station 
+    ORDER BY 
         length(city) asc, city asc limit 1;
         
-    select distinct(City),length(city) 
-    from station 
-    order by
+    SELECT distinct(City),length(city) 
+    FROM station 
+    ORDER BY 
         length(city) desc, city asc limit 1;
 
 -----
@@ -93,8 +93,8 @@ Q10. Query the list of CITY names starting with vowels (i.e., a, e, i, o, or u) 
 
 <img width="240" alt="q8" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/4f101b04-6489-4522-9f9a-a6739ba2b676">
 
-    select city
-    FROM STATION
+    SELECT city
+    FROM station
     WHERE 
         LEFT(city,1) in ('a','e','i','o','u');
 
@@ -103,8 +103,8 @@ Q11. Query the list of CITY names ending with vowels (a, e, i, o, u) from STATIO
 
 <img width="240" alt="q8" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/4f101b04-6489-4522-9f9a-a6739ba2b676">
 
-    select DISTINCT city
-    FROM STATION
+    SELECT DISTINCT city
+    FROM station
     WHERE 
         RIGHT(city,1) in ('a','e','i','o','u');
 
@@ -113,7 +113,7 @@ Q12. Query the list of CITY names from STATION which have vowels (i.e., a, e, i,
 
 <img width="240" alt="q8" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/4f101b04-6489-4522-9f9a-a6739ba2b676">
 
-    select DISTINCT city
+    SELECT DISTINCT city
     FROM STATION
     WHERE 
         RIGHT(city,1) in ('a','e','i','o','u') AND LEFT(city,1)  in ('a','e','i','o','u');
@@ -123,7 +123,7 @@ Q12. Query the list of CITY names from STATION which have vowels (i.e., a, e, i,
  
 <img width="240" alt="q8" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/4f101b04-6489-4522-9f9a-a6739ba2b676">
 
-    select DISTINCT city
+    SELECT DISTINCT city
     FROM STATION
     WHERE 
         LEFT(city,1)  NOT IN ('a','e','i','o','u');
