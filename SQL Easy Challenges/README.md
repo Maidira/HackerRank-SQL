@@ -128,6 +128,69 @@ Q12. Query the list of CITY names from STATION which have vowels (i.e., a, e, i,
     WHERE 
         LEFT(city,1)  NOT IN ('a','e','i','o','u');
 
+ -----
+ Q14. Query the list of CITY names from STATION that do not end with vowels. Your result cannot contain duplicates.
+
+<img width="240" alt="q8" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/4f101b04-6489-4522-9f9a-a6739ba2b676">
+
+    SELECT DISTINCT city 
+    FROM station 
+    WHERE right(city,1) NOT in('a','e','i','o','u');
+
+ -----
+Q15. Query the list of CITY names from STATION that either do not start with vowels or do not end with vowels. Your result cannot contain duplicates.
+
+<img width="240" alt="q8" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/4f101b04-6489-4522-9f9a-a6739ba2b676">
+
+    SELECT distinct city 
+    FROM station 
+    WHERE 
+        left(city,1) not in('a','e','i','o','u') OR right(city,1) not in('a','e','i','o','u');
+
+ -----
+ Q16. Query the list of CITY names from STATION that do not start with vowels and do not end with vowels. Your result cannot contain duplicates.
+
+<img width="240" alt="q8" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/4f101b04-6489-4522-9f9a-a6739ba2b676">
+
+    SELECT DISTINCT city 
+    FROM station 
+    WHERE 
+        left(city,1) not in('a','e','i','o','u') AND right(city,1) not in('a','e','i','o','u');
+
+ -----
+Q17. Query the Name of any student in STUDENTS who scored higher than Marks. Order your output by the last three characters of each name. If two or more students both have names ending in the same last three characters (i.e.: Bobby, Robby, etc.), secondary sort them by ascending ID.
+
+<img width="231" alt="q17" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/1bdf2430-823c-4625-8d9b-92b0b02f96a9">
+    
+    SELECT name 
+    FROM students 
+    WHERE marks > 75 
+    ORDER BY right(name,3),id ASC;
+
+ -----    
+Q18. Write a query that prints a list of employee names (i.e.: the name attribute) from the Employee table in alphabetical order.
+
+<img width="148" alt="q18" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/3946a0f5-9ad0-469c-b334-5671fd3feccb">
+    
+    SELECT name 
+    FROM employee 
+    ORDER BY name;
+
+ -----    
+ Q19. Write a query that prints a list of employee names (i.e.: the name attribute) for employees in Employee having a salary greater than per month who have been employees for less than months. Sort your result by ascending employee_id.
+
+ <img width="148" alt="q18" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/3946a0f5-9ad0-469c-b334-5671fd3feccb">
+
+    SELECT name 
+    FROM employee 
+    WHERE 
+         salary > 2000 AND months <10 
+    ORDER BY employee_id;
+
+ -----   
+Q20. 
+
+
 
 
 
