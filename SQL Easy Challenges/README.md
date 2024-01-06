@@ -188,16 +188,38 @@ Q18. Write a query that prints a list of employee names (i.e.: the name attribut
     ORDER BY employee_id;
 
  -----   
-Q20. 
+Q20. Write a query identifying the type of each record in the TRIANGLES table using its three side lengths. Output one of the following statements for each record in the table:
+Equilateral: It's a triangle with 3 sides of equal length.
+Isosceles: It's a triangle with 2 sides of equal length.
+Scalene: It's a triangle with 3 sides of differing lengths.
+Not A Triangle: The given values of A, B, and C don't form a triangle.
 
+<img width="233" alt="q20" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/4819785d-8220-49ca-ac6e-c9244cff1f09">
 
+    SELECT 
+    CASE
+    WHEN A + B <= C or A + C <= B or B + C <= A THEN "Not A Triangle"
+    WHEN A = B and B = C THEN "Equilateral"
+    WHEN A = B or A = C or B = C THEN "Isosceles"
+    ELSE "Scalene"
+    FROM TRIANGLES;
+    
+ -----  
+ Q21. Query a count of the number of cities in CITY having a Population larger than.
 
+<img width="281" alt="q21" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/af42bb4b-1371-412b-8947-eb01dedbaa99">
 
+    SELECT COUNT(*) 
+    FROM CITY 
+    WHERE POPULATION > 100000;
 
+ -----
+Q22. Query the total population of all cities in CITY where District is California. 
 
+<img width="281" alt="q21" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/af42bb4b-1371-412b-8947-eb01dedbaa99">
 
-
-
-
+    SELECT SUM(POPULATION)
+    FROM CITY
+    WHERE DISTRICT = 'California;
 
 
