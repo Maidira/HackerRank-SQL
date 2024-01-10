@@ -222,4 +222,88 @@ Q22. Query the total population of all cities in CITY where District is Californ
     FROM CITY
     WHERE DISTRICT = 'California;
 
+ -----
+ Q23. Query the average population of all cities in CITY where District is California.
+
+<img width="281" alt="q21" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/af42bb4b-1371-412b-8947-eb01dedbaa99">
+
+    SELECT AVG(POPULATION) as average_population
+    FROM city
+    WHERE district = "California";
+
+ -----
+ Q24. Query the average population for all cities in CITY, rounded down to the nearest integer.
+
+<img width="281" alt="q21" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/af42bb4b-1371-412b-8947-eb01dedbaa99">
+
+    SELECT FLOOR(AVG(POPULATION)) AS average_population
+    FROM city;
+
+ -----
+ Q25. Query the sum of the populations for all Japanese cities in CITY. The COUNTRYCODE for Japan is JPN.
+
+<img width="281" alt="q21" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/af42bb4b-1371-412b-8947-eb01dedbaa99">
+
+    SELECT SUM(population)
+    FROM city
+    WHERE countrycode = "JPN";
+
+ -----
+ Q26. Query the difference between the maximum and minimum populations in CITY.
+
+<img width="281" alt="q21" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/af42bb4b-1371-412b-8947-eb01dedbaa99">
+
+SELECT MAX(POPULATION) - MIN(POPULATION)
+FROM CITY;
+
+ -----
+Q27. Samantha was tasked with calculating the average monthly salaries for all employees in the EMPLOYEES table but did not realize her keyboard's 0 key was broken until after completing the calculation. She wants your help finding the difference between her miscalculation (using salaries with any zeros removed), and the actual average salary.
+Write a query calculating the amount of error (i.e.:average monthly salaries), and round it up to the next integer.
+
+<img width="234" alt="q27" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/bf504b31-d5fa-4441-98a4-a40f4e7faff5">
+
+    SELECT CEIL(AVG(Salary)-AVG(REPLACE(Salary,'0','')))
+    FROM  EMPLOYEES;
+
+ -----
+Q28. We define an employee's total earnings to be their monthly salary X months worked, and the maximum total earnings to be the maximum total earnings for any employee in the Employee table. Write a query to find the maximum total earnings for all employees as well as the total number of employees who have maximum total earnings. Then print these values as space-separated integers.
+
+<img width="142" alt="q28" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/31b4038c-db42-48cf-922f-81fce533b67c">
+    
+    SELECT months*salary AS total_earnings ,COUNT(*)
+    FROM employee
+    GROUP BY total_earnings
+    ORDER BY total_earnings DESC
+    LIMIT 1;
+
+ -----
+ Q29. Query the following two values from the STATION table:
+i)The sum of all values in LAT_N rounded to a scale of decimal places.
+ii) The sum of all values in LONG_W rounded to a scale of decimal places.
+
+<img width="236" alt="Q29" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/7b2f411b-4660-4115-867a-52e3ae4b427e">
+
+    SELECT ROUND(SUM(LAT_N),2) , ROUND(SUM(LONG_W),2)
+    FROM station;
+
+ -----
+ Q30. Query the sum of Northern Latitudes (LAT_N) from STATION having values greater than 38.7880 and less than 137.2345 . Truncate your answer to decimal places.
+
+<img width="236" alt="Q29" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/7b2f411b-4660-4115-867a-52e3ae4b427e">
+
+    SELECT ROUND(SUM(LAT_N),4) AS total
+    FROM station
+    WHERE LAT_N > 38.7880 AND LAT_N<137.2345;
+
+ -----
+ Q31.
+
+
+
+
+
+
+
+
+ 
 
