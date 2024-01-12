@@ -296,14 +296,96 @@ ii) The sum of all values in LONG_W rounded to a scale of decimal places.
     WHERE LAT_N > 38.7880 AND LAT_N<137.2345;
 
  -----
- Q31.
+ Q31. Query the greatest value of the Northern Latitudes (LAT_N) from STATION that is less than 137.2345 . Truncate your answer to decimal places.
+
+ <img width="236" alt="Q29" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/7b2f411b-4660-4115-867a-52e3ae4b427e">
+
+    SELECT ROUND(MAX(LAT_N),4)
+    FROM station
+    WHERE LAT_N < 137.2345;
+    
+ -----
+ Q32. Query the Western Longitude (LONG_W) for the largest Northern Latitude (LAT_N) in STATION that is less than 137.2345. Round your answer to decimal places.
+
+ <img width="236" alt="Q29" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/7b2f411b-4660-4115-867a-52e3ae4b427e">
+
+    SELECT ROUND(LONG_W,4)
+    FROM station
+    WHERE 
+        LAT_N = (SELECT MAX(LAT_N) FROM station WHERE LAT_N < 137.2345);
+
+ -----
+Q33. Query the smallest Northern Latitude (LAT_N) from STATION that is greater than 38.7780. Round your answer to decimal places.
+
+ <img width="236" alt="Q29" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/7b2f411b-4660-4115-867a-52e3ae4b427e">
+
+    SELECT ROUND(MIN(LAT_N),4)
+    FROM station
+    WHERE LAT_N > 38.7780;
+
+ -----
+ Q34. Query the Western Longitude (LONG_W)where the smallest Northern Latitude (LAT_N) in STATION is greater than 38.7780 . Round your answer to decimal places.
+
+ <img width="236" alt="Q29" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/7b2f411b-4660-4115-867a-52e3ae4b427e">
+    
+    SELECT ROUND(LONG_W,4)
+    FROM station
+    WHERE 
+        LAT_N = (SELECT MIN(LAT_N) FROM station WHERE LAT_N > 38.7780)
+
+  -----
+  Q35. Given the CITY and COUNTRY tables, query the sum of the populations of all cities where the CONTINENT is 'Asia'.
+
+<img width="281" alt="q35" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/08c5a6a7-2c8a-4a1e-ae56-6a45829d5c24">
+
+    SELECT SUM(cy.population)
+    FROM city cy
+    JOIN country c
+    ON cy.countrycode=c.code
+    WHERE c.continent = "Asia";
+
+  -----
+  Q36. Given the CITY and COUNTRY tables, query the names of all cities where the CONTINENT is 'Africa'. 
+
+<img width="281" alt="q35" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/08c5a6a7-2c8a-4a1e-ae56-6a45829d5c24">
+
+    SELECT cy.name
+    FROM city cy
+    JOIN country c
+    ON cy.countrycode=c.code
+    WHERE c.continent = "Africa";
+
+  -----
+  Q37. Given the CITY and COUNTRY tables, query the names of all the continents (COUNTRY.Continent) and their respective average city populations (CITY.Population) rounded down to the nearest integer.
+
+<img width="281" alt="q35" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/08c5a6a7-2c8a-4a1e-ae56-6a45829d5c24">
+
+    SELECT c.continent, FLOOR(AVG(cy.population))
+    FROM city cy 
+    JOIN country c
+    ON cy.countrycode = c.code
+    GROUP BY c.continent;
+
+  -----
+  Q38. P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
+
+  <img width="75" alt="q38" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/b9d51a79-152a-4bff-8cef-7c09b7e36ce3">
+    
+    WITH RECURSIVE pattern_cte AS (
+    SELECT 1 AS level
+    UNION ALL
+    SELECT level + 1
+    FROM pattern_cte
+    WHERE level < 20
+    )
+    SELECT RPAD('*', (21 - level) * 2, ' *') AS pattern
+    FROM pattern_cte;
+
+  -----
+  Q39. P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
+
+<img width="88" alt="q39" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/a6851fb2-062a-4ef7-92ff-08ce04e3c919">
 
 
 
-
-
-
-
-
- 
 
