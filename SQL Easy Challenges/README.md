@@ -385,7 +385,15 @@ Q33. Query the smallest Northern Latitude (LAT_N) from STATION that is greater t
   Q39. P(R) represents a pattern drawn by Julia in R rows. The following pattern represents P(5):
 
 <img width="88" alt="q39" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/a6851fb2-062a-4ef7-92ff-08ce04e3c919">
-
-
+    
+    WITH RECURSIVE pattern_cte AS (
+      SELECT 1 AS level
+      UNION ALL
+      SELECT level + 1
+      FROM pattern_cte
+      WHERE level < 20
+    )
+    SELECT RPAD('*', 2 * level - 1, ' *') AS pattern
+    FROM pattern_cte;
 
 
