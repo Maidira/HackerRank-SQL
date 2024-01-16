@@ -20,3 +20,18 @@ Q1. i) Query an alphabetically ordered list of all names in OCCUPATIONS, immedia
     ORDER BY COUNT(Occupation) ASC, Occupation;
 
 -----
+
+Q2. Pivot the Occupation column in OCCUPATIONS so that each Name is sorted alphabetically and displayed underneath its corresponding Occupation. The output column headers should be Doctor, Professor, Singer, and Actor, respectively.
+
+   <img width="239" alt="q1" src="https://github.com/Maidira/HackerRank-SQL/assets/60576485/5d9b6db8-8489-4e3c-a40a-c97ed85af1e9">
+
+    SELECT 
+        MIN(IF(occupation='Doctor',name,null)) AS Doctor,
+        MIN(IF(occupation='Professor',name,null)) AS Professor, 
+        MIN(IF(occupation='Singer',name,null)) AS Singer,
+        MIN(IF(occupation='Actor',name,null)) AS Actor 
+    FROM
+        (SELECT *,row_number() OVER (partition by occupation ORDER BY name ) 
+        AS ind FROM occupations) AS occups GROUP BY ind;
+
+-----
