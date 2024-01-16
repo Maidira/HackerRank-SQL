@@ -1,3 +1,3 @@
 # HackerRank-SQL
 
-# SQL Easy Challenges
+# SQL Medium Challenges
